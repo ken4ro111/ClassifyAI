@@ -4,11 +4,8 @@
 git clone https://github.com/ken4ro111/ClassifyAI.git
 ```
 * XCodeで開く
-* ./ClassifyAI/swift_model/ClassfyAI/**.mlmodelを配置
-    * 学習済みの重みを.mlmodelに変換(`**.mlmodel`)し、`./ClassifyAI/ClassfyAI/下`に配置する
-* `**.mlmodel`配置後、`ViewController.swift`の下記の行を修正
-    * `model_name().model`の`model_name()`の部分を`**.mlmodel`の`**`部分に変更
-    * 例: `train.mlmodel` => `train()`
+* ./ClassifyAI/swift_model/ClassfyAI/下に `train.mlmodel`を配置
+    * [train_model](https://github.com/ken4ro111/ClassifyAI/tree/master/train_model)で学習済みの重みを、train_modelディレクトリ下の`convert.py`を使用して、.mlmodelに変換(`train.h5 => train.mlmodel`)し、`./ClassifyAI/ClassfyAI/下`に配置する
 ```
 guard let model = try? VNCoreMLModel(for: model_name().model) else {
 ```
